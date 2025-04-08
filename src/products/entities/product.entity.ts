@@ -1,5 +1,6 @@
 import { ProductStatus } from 'src/enum';
 import { ProductCategory } from 'src/product-category/entities/product-category.entity';
+import { ProductSubCategory } from 'src/product-sub-category/entities/product-sub-category.entity';
 import {
     Column,
     CreateDateColumn,
@@ -81,5 +82,11 @@ export class Product {
       (productCategory) => productCategory.product,
     )
     productCategory: ProductCategory[];
+    
+    @OneToMany(
+      () => ProductSubCategory,
+      (productSubCategory) => productSubCategory.product,
+    )
+    productSubCategory: ProductSubCategory[];
   
 }

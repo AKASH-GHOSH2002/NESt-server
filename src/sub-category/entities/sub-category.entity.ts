@@ -1,6 +1,7 @@
 import { Account } from 'src/account/entities/account.entity';
 import { Category } from 'src/category/entities/category.entity';
 import { DefaultStatus } from 'src/enum';
+import { ProductSubCategory } from 'src/product-sub-category/entities/product-sub-category.entity';
 import {
   Column,
   CreateDateColumn,
@@ -56,5 +57,9 @@ export class SubCategory {
     onUpdate: 'CASCADE',
   })
   category: Category[];
+  
+  @OneToMany(() => ProductSubCategory, (productSubCategory) => productSubCategory.subCategory)
+  productSubCategory: ProductSubCategory[];
+  
 
 }
