@@ -20,8 +20,8 @@ export class EmailSubscribersController {
   }
 
   @Get()
-  @UseGuards(AuthGuard('jwt'), RolesGuard, PermissionsGuard)
-  // @Roles(UserRole.ADMIN)
+  @UseGuards(AuthGuard('jwt'), RolesGuard, )
+  @Roles(UserRole.ADMIN)
   // @CheckPermissions([PermissionAction.READ, 'email_subscribers'])
   findAll(@Query() dto: CommonPaginationDto) {
     return this.emailSubscribersService.findAll(dto);

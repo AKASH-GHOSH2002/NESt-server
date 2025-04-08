@@ -13,11 +13,8 @@ import {
 
 @Entity()
 export class ProductCategory {
-  
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
-
   @CreateDateColumn()
   createdAt: Date;
 
@@ -37,6 +34,14 @@ export class ProductCategory {
   })
   product: Product[];
 
-  @ManyToOne(() => Category,(category) => category.productCategory,{ cascade: true, onUpdate: 'CASCADE',onDelete: 'CASCADE', },)
+  @ManyToOne(
+    () => Category,
+    (category) => category.productCategory,
+    {
+      cascade: true,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    },
+  )
   category: Category[];
 }

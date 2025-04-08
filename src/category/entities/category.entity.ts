@@ -1,12 +1,15 @@
+import { Account } from 'src/account/entities/account.entity';
 import { BannerCategory } from 'src/banner-category/entities/banner-category.entity';
 import { Banner } from 'src/banner/entities/banner.entity';
 
 import { CategoryType, DefaultStatus } from 'src/enum';
+import { ProductCategory } from 'src/product-category/entities/product-category.entity';
 import { SubCategory } from 'src/sub-category/entities/sub-category.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -38,15 +41,20 @@ export class Category {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  // // @OneToMany(() => SubCategory, (subCategory) => subCategory.category)
-  // // subCategory: SubCategory[];
+  @ManyToOne(() => Account, (account) => account.category, {
+    cascade: true,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  account: Account[];
 
-  // @OneToMany(
-  //   () => CompanyCategory,
-  //   (companyCategory) => companyCategory.category,
-  // )
-  // companyCategory: CompanyCategory[];
+  @OneToMany(() => SubCategory, (subCategory) => subCategory.category)
+  subCategory: SubCategory[];
+
 
   @OneToMany(() => BannerCategory, (bannerCategory) => bannerCategory.category)
   bannerCategory: BannerCategory[];
+  
+  @OneToMany(() => ProductCategory,(productCategory) => productCategory.category,)
+  productCategory: ProductCategory[];
 }

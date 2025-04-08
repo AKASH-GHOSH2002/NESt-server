@@ -35,9 +35,9 @@ import { StaffDetail } from 'src/staff_detail/entities/staff_detail.entity';
       inject: [ConfigService],
       useFactory: () => {
         return {
-          secret: process.env.BL_JWT_SECRET,
+          secret: process.env.NEST_JWT_SECRET,
           signOptions: {
-            expiresIn: process.env.BL_JWT_EXPIRE,
+            expiresIn: process.env.NEST_JWT_EXPIRE,
           },
         };
       },

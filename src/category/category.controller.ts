@@ -34,17 +34,17 @@ export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
-  @UseGuards(AuthGuard('jwt'), RolesGuard, PermissionsGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard, )
   @Roles(UserRole.ADMIN)
-  @CheckPermissions([PermissionAction.CREATE, 'category'])
+  // @CheckPermissions([PermissionAction.CREATE, 'category'])
   create(@Body() dto: CategoryDto) {
     return this.categoryService.create(dto);
   }
 
   @Get('list/all')
-  @UseGuards(AuthGuard('jwt'), RolesGuard, PermissionsGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard, )
   @Roles(UserRole.ADMIN)
-  @CheckPermissions([PermissionAction.READ, 'category'])
+  // @CheckPermissions([PermissionAction.READ, 'category'])
   findAll(@Query() query: PaginationSDto) {
     const keyword = query.keyword || '';
     return this.categoryService.findAll(

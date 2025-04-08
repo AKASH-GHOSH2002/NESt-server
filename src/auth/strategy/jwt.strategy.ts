@@ -2,20 +2,30 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { AuthService } from '../auth.service';
+import { Account } from 'src/account/entities/account.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(private readonly authService: AuthService) {
+  constructor(
+    @InjectRepository(Account)
+    private readonly accountRepository: Repository<Account>,
+  ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: process.env.NEST_JWT_SECRET,
+      ignoreExpiration: false,
+      secretOrKey: process.env.NEST_JWT_SECRET ,
+
     });
   }
 
-  async validate(payload) {
-    const user = await this.authService.validate(payload.id);
+  async validate(payload: any): Promise<Account> {
+    const { id } = payload;
+    const user = await this.accountRepository.findOne({ where: { id } });
+
     if (!user) {
-      throw new UnauthorizedException('Authentication failed.');
+      throw new UnauthorizedException('Account not found!');
     }
     return user;
   }

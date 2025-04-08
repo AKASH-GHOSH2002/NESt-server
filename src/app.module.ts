@@ -26,9 +26,7 @@ import { UserDetailsModule } from './user-details/user-details.module';
 import { UserPermissionsModule } from './user-permissions/user-permissions.module';
 import { StateModule } from './state/state.module';
 import { CityModule } from './city/city.module';
-
 import { RatingFeedbackModule } from './rating-feedback/rating-feedback.module';
-
 import { BannerCategoryModule } from './banner-category/banner-category.module';
 import { ContactUs } from './contact-us/entities/contact-us.entity';
 import { StaffDetailModule } from './staff_detail/staff_detail.module';
@@ -38,6 +36,7 @@ import { ProductSubCategoryModule } from './product-sub-category/product-sub-cat
 import { ProductImagesModule } from './product-images/product-images.module';
 import { PrductVarityModule } from './prduct-varity/prduct-varity.module';
 import { SettingsModule } from './settings/settings.module';
+import { CategoryModule } from './category/category.module';
 @Module({
   imports: [
  
@@ -47,7 +46,7 @@ import { SettingsModule } from './settings/settings.module';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.BEST_DB_HOST,
+      host: process.env.NEST_DB_HOST,
       port: Number(process.env.NEST_DB_PORT),
       username: process.env.NEST_USER_NAME,
       password: process.env.NEST_DB_PASS,
@@ -91,7 +90,8 @@ import { SettingsModule } from './settings/settings.module';
     ProductSubCategoryModule,
     ProductImagesModule,
     PrductVarityModule,
-    ContactUsModule
+    ContactUsModule,
+    CategoryModule 
    
   ],
   controllers: [AppController],

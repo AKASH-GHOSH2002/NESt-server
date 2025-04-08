@@ -8,6 +8,7 @@ import { RatingFeedback } from 'src/rating-feedback/entities/rating-feedback.ent
 import { UserDetail } from 'src/user-details/entities/user-detail.entity';
 import { UserPermission } from 'src/user-permissions/entities/user-permission.entity';
 import { StaffDetail } from 'src/staff_detail/entities/staff_detail.entity';
+import { SubCategory } from 'src/sub-category/entities/sub-category.entity';
 import {
   Column,
   CreateDateColumn,
@@ -16,6 +17,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Category } from 'src/category/entities/category.entity';
 
 @Entity()
 export class Account {
@@ -65,4 +67,10 @@ export class Account {
 
   @OneToMany(() => RatingFeedback, (ratingFeedback) => ratingFeedback.account)
   ratingFeedback: RatingFeedback[];
+
+  @OneToMany(() => SubCategory, (subCategory) => subCategory.account)
+  subCategory: SubCategory[];
+  
+  @OneToMany(() => Category, (category) => category.account)
+  category: Category[];
 }
