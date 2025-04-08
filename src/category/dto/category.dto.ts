@@ -21,6 +21,10 @@ export class CategoryDto {
   @MinLength(2)
   @MaxLength(50)
   name: string;
+
+
+  @IsOptional()
+  accountId: string;
 }
 
 export class PaginationSDto {

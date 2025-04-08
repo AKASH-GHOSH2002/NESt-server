@@ -37,6 +37,7 @@ import { ProductImagesModule } from './product-images/product-images.module';
 import { PrductVarityModule } from './prduct-varity/prduct-varity.module';
 import { SettingsModule } from './settings/settings.module';
 import { CategoryModule } from './category/category.module';
+import { SubCategoryModule } from './sub-category/sub-category.module';
 @Module({
   imports: [
  
@@ -76,13 +77,10 @@ import { CategoryModule } from './category/category.module';
     EmailSubscribersModule,
     //BlogsModule,
     //ContactUsModule,
-  
     ////StateModule,
     //CityModule,
     //AreaModule,
- 
     RatingFeedbackModule,
-  
     BannerCategoryModule,
     StaffDetailModule,
     ProductsModule,
@@ -91,7 +89,8 @@ import { CategoryModule } from './category/category.module';
     ProductImagesModule,
     PrductVarityModule,
     ContactUsModule,
-    CategoryModule 
+    CategoryModule,
+  SubCategoryModule
    
   ],
   controllers: [AppController],

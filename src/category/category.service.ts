@@ -141,7 +141,7 @@ export class CategoryService {
 
   async image(image: string, result: Category) {
     const obj = Object.assign(result, {
-      image: process.env.BL_CDN_LINK + image,
+      image: process.env.NEST_URL + image,
       imageName: image,
     });
 

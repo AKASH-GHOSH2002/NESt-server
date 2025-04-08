@@ -16,7 +16,7 @@ export class SubcatPagination {
   @IsNotEmpty()
   @Type(() => Number)
   @IsNumber()
-  @Min(10)
+  @Min(0)
   @Max(100)
   limit: number;
 

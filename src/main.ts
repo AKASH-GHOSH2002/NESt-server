@@ -15,10 +15,10 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>( AppModule, /*{ httpsOptions } */);
 
   const config = new DocumentBuilder()
-    .setTitle('Business-Listing Server')
+    .setTitle('NEST_Server')
     .setDescription('The Business-Listing server API description')
     .setVersion('1.0')
-    .addTag('Business-Listing Server')
+    .addTag('NEST_Server')
     .addBearerAuth()
     .build();
 
@@ -26,7 +26,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
   app.useStaticAssets(join(__dirname, '..', 'uploads'), {
     index: false,
-    prefix: 'uploads',
+    prefix: '/uploads',
   });
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));

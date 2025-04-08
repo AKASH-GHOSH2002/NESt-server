@@ -10,7 +10,6 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
 @Entity()
 export class ProductCategory {
   @PrimaryGeneratedColumn('uuid')

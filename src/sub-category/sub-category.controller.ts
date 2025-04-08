@@ -37,9 +37,9 @@ export class SubCategoryController {
   constructor(private readonly subCategoryService: SubCategoryService) {}
 
   @Post()
-  @UseGuards(AuthGuard('jwt'), RolesGuard, PermissionsGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard, )
   @Roles(UserRole.ADMIN)
-  @CheckPermissions([PermissionAction.CREATE, 'sub_category'])
+  // @CheckPermissions([PermissionAction.CREATE, 'sub_category'])
   create(@Body() dto: SubCategoryDto, @CurrentUser() user: Account) {
     dto.accountId = user.id;
     dto.updatedId = user.id;

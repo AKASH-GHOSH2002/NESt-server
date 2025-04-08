@@ -27,17 +27,19 @@ import { CategoryService } from './category.service';
 import { CategoryDto, CategoryPaginationSDto, PaginationSDto, StatusDto } from './dto/category.dto';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { Account } from 'src/account/entities/account.entity';
 
 @ApiTags('Category')
 @Controller('category')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
-
   @Post()
-  @UseGuards(AuthGuard('jwt'), RolesGuard, )
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles(UserRole.ADMIN)
   // @CheckPermissions([PermissionAction.CREATE, 'category'])
-  create(@Body() dto: CategoryDto) {
+  create(@Body() dto: CategoryDto, @CurrentUser() user: Account) {
+    dto.accountId = user.id; // ✅ assign logged-in user’s ID
     return this.categoryService.create(dto);
   }
 

@@ -48,6 +48,9 @@ export class Category {
   })
   account: Account[];
 
+  @Column({ type: 'uuid', nullable: true })
+accountId: string;
+
   @OneToMany(() => SubCategory, (subCategory) => subCategory.category)
   subCategory: SubCategory[];
 
