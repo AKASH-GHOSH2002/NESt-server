@@ -53,7 +53,7 @@ import { SubCategoryModule } from './sub-category/sub-category.module';
       password: process.env.NEST_DB_PASS,
       database: process.env.NEST_DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}',],
-      synchronize: false,
+      synchronize:false,
     }),
     CacheModule.register({
       isGlobal: true,

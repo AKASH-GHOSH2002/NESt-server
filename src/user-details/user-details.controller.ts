@@ -33,8 +33,6 @@ import { PermissionsGuard } from 'src/auth/guards/permissions.guard';
 import { UserDetail } from './entities/user-detail.entity';
 import { UpdateuserProfileDto } from './dto/update-userProfile.dto';
 
-
-
 @Controller('user-details')
 export class UserDetailsController {
   constructor(private readonly userDetailsService: UserDetailsService) {}

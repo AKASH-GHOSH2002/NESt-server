@@ -14,6 +14,8 @@ import {
   MinLength,
 } from 'class-validator';
 import { ProductStatus } from 'src/enum';
+import { ProductCategoryDto } from 'src/product-category/dto/product-category.dto';
+import { ProductSubCategoryDto } from 'src/product-sub-category/dto/product-sub-category.dto';
 
 export class ProductDto {
   @IsNotEmpty()
@@ -72,9 +74,18 @@ export class ProductDto {
   @IsNumber()
   HEIGHT: number;
 
+  @IsOptional()
+  @IsArray()
+  subCategory: ProductSubCategoryDto;
+
+  @IsOptional()
+  @IsArray()
+  category: ProductCategoryDto;
 
   @IsOptional()
   accountId: string;
+
+ 
 }
 
 export class ProductStatusDto {
@@ -156,10 +167,7 @@ export class UpdateProductDto {
   @IsBoolean()
   freeShipping: boolean;
 
-  @IsOptional()
-  @Type(() => Boolean)
-  @IsBoolean()
-  gstBillAvailable: boolean;
+  
 
 
 

@@ -17,6 +17,7 @@ import { JwtStrategy } from './strategy/jwt.strategy';
 import { CompanyDetail } from 'src/company-details/entities/company-detail.entity';
 import { UserDetail } from 'src/user-details/entities/user-detail.entity';
 import { StaffDetail } from 'src/staff_detail/entities/staff_detail.entity';
+import { Product } from 'src/products/entities/product.entity';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { StaffDetail } from 'src/staff_detail/entities/staff_detail.entity';
       UserPermission,
       CompanyDetail,
       UserDetail,
-      StaffDetail
+      StaffDetail,
+      Product
 
     ]),
     PassportModule.register({ defaultStrategy: 'jwt' }),

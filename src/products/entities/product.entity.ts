@@ -1,3 +1,4 @@
+import { Account } from 'src/account/entities/account.entity';
 import { ProductStatus } from 'src/enum';
 import { ProductCategory } from 'src/product-category/entities/product-category.entity';
 import { ProductSubCategory } from 'src/product-sub-category/entities/product-sub-category.entity';
@@ -76,6 +77,16 @@ export class Product {
   
     @UpdateDateColumn()
     updatedAt: Date;
+    
+    @Column({ type: 'uuid', nullable: true })
+    accountId: string;
+  
+    @ManyToOne(() => Account, (account) => account.product, {
+      cascade: true,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    })
+    account: Account[];
 
     @OneToMany(
       () => ProductCategory,

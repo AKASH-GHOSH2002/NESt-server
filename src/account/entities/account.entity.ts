@@ -18,6 +18,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Category } from 'src/category/entities/category.entity';
+import { Product } from 'src/products/entities/product.entity';
 
 @Entity()
 export class Account {
@@ -67,6 +68,8 @@ export class Account {
 
   @OneToMany(() => RatingFeedback, (ratingFeedback) => ratingFeedback.account)
   ratingFeedback: RatingFeedback[];
+  @OneToMany(()=>Product,(product)=> product.account)
+  product: Product[];
 
   @OneToMany(() => SubCategory, (subCategory) => subCategory.account)
   subCategory: SubCategory[];
