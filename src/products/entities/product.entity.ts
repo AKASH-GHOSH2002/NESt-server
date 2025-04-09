@@ -1,6 +1,7 @@
 import { Account } from 'src/account/entities/account.entity';
 import { ProductStatus } from 'src/enum';
 import { ProductCategory } from 'src/product-category/entities/product-category.entity';
+import { ProductImage } from 'src/product-images/entities/product-image.entity';
 import { ProductSubCategory } from 'src/product-sub-category/entities/product-sub-category.entity';
 import {
     Column,
@@ -81,23 +82,16 @@ export class Product {
     @Column({ type: 'uuid', nullable: true })
     accountId: string;
   
-    @ManyToOne(() => Account, (account) => account.product, {
-      cascade: true,
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-    })
+    @ManyToOne(() => Account, (account) => account.product, { cascade: true, onUpdate: 'CASCADE', onDelete: 'CASCADE',})
     account: Account[];
 
-    @OneToMany(
-      () => ProductCategory,
-      (productCategory) => productCategory.product,
-    )
+    @OneToMany( () => ProductCategory, (productCategory) => productCategory.product,)
     productCategory: ProductCategory[];
     
-    @OneToMany(
-      () => ProductSubCategory,
-      (productSubCategory) => productSubCategory.product,
-    )
+    @OneToMany( () => ProductSubCategory, (productSubCategory) => productSubCategory.product,)
     productSubCategory: ProductSubCategory[];
-  
+
+   @ManyToOne(() => ProductImage, (productImage) => productImage.product)
+   productImage: ProductImage[];
+
 }

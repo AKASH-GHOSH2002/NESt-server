@@ -8,7 +8,7 @@ export class ProductSubCategoryService {
 
     constructor(@InjectRepository(ProductSubCategory) private readonly productSubCategoryRepo: Repository<ProductSubCategory>,){}
     
-    async SubCategorycreate(dto: ProductSubCategoryDto) {
+    async SubCategorycreate(dto: ProductSubCategoryDto[]) {
         const existingRecords = await this.productSubCategoryRepo.find({
           where: { productId: dto.productId },
         });

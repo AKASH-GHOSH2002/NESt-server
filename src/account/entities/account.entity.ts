@@ -76,4 +76,7 @@ export class Account {
   
   @OneToMany(() => Category, (category) => category.account)
   category: Category[];
+  
+  @OneToMany(() => Product, (product) => product.account)
+  productImage: Product[];
 }

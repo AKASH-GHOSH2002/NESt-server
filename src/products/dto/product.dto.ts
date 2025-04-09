@@ -75,12 +75,10 @@ export class ProductDto {
   HEIGHT: number;
 
   @IsOptional()
-  @IsArray()
-  subCategory: ProductSubCategoryDto;
+  subCategory: ProductSubCategoryDto[];
 
   @IsOptional()
-  @IsArray()
-  category: ProductCategoryDto;
+  category: ProductCategoryDto[];
 
   @IsOptional()
   accountId: string;

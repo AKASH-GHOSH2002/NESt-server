@@ -15,7 +15,7 @@ constructor(
     const existingRecords = await this.productCategoryRepo.find({
         where: { productId: dto.productId },
       });
-    
+    console.log(existingRecords);
       if (existingRecords.length > 0) {
         await this.productCategoryRepo.remove(existingRecords);
       }

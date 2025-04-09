@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { AuthGuard } from '@nestjs/passport';
@@ -19,6 +20,7 @@ import { Account } from 'src/account/entities/account.entity';
 import { ProductCategoryService } from 'src/product-category/product-category.service';
 import { ProductSubCategoryService } from 'src/product-sub-category/product-sub-category.service';
 import { Product } from 'src/products/entities/product.entity';
+import { ProductPaginationDto } from './dto/product-pagination.dto';
 
 
 @Controller('products')
@@ -33,10 +35,8 @@ export class ProductsController {
   async create(@Body() dto: ProductDto, @CurrentUser() user: Account) {
     dto.accountId = user.id;
     const payload = await this.productsService.Productcreate(dto, user.id);
-   
     if (dto.category) {
       dto.category.productId = payload.id;
-    
       this. productCategoryService.Categorycreate(dto.category);
     }
     if (dto.subCategory) {
@@ -46,5 +46,14 @@ export class ProductsController {
     
     return payload;
   }
+
+
+  // @Get('admin/all')
+  // @UseGuards(AuthGuard('jwt'), RolesGuard, )
+  // @Roles(UserRole.ADMIN)
+  // findAllByAdmin(@Query() dto: ProductPaginationDto) {
+  //   return this.productsService.findAll(dto);
+  // }
+
 
 }

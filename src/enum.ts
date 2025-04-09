@@ -169,6 +169,9 @@ export enum ProductFileType {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
 }
+export enum VarityType {
+  COLOR = 'COLOR',
+}
 
 export enum CategoryType {
   NORMAL = 'NORMAL',

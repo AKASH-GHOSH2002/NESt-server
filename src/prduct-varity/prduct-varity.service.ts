@@ -4,23 +4,9 @@ import { UpdatePrductVarityDto } from './dto/update-prduct-varity.dto';
 
 @Injectable()
 export class PrductVarityService {
-  create(createPrductVarityDto: CreatePrductVarityDto) {
-    return 'This action adds a new prductVarity';
+  
+  async create(dto: ProductVariantDto[]) {
+    return this.repo.save(dto);
   }
 
-  findAll() {
-    return `This action returns all prductVarity`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} prductVarity`;
-  }
-
-  update(id: number, updatePrductVarityDto: UpdatePrductVarityDto) {
-    return `This action updates a #${id} prductVarity`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} prductVarity`;
-  }
 }
