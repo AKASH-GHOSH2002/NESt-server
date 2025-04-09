@@ -16,6 +16,7 @@ import {
 import { ProductStatus } from 'src/enum';
 import { ProductCategoryDto } from 'src/product-category/dto/product-category.dto';
 import { ProductSubCategoryDto } from 'src/product-sub-category/dto/product-sub-category.dto';
+import { ProductVariantDto } from 'src/product-variant/dto/product-variant.dto';
 
 export class ProductDto {
   @IsNotEmpty()
@@ -79,6 +80,11 @@ export class ProductDto {
 
   @IsOptional()
   category: ProductCategoryDto[];
+
+  @IsOptional()
+  @IsArray()
+  productVariant: ProductVariantDto[];
+
 
   @IsOptional()
   accountId: string;

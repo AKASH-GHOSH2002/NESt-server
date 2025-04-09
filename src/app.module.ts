@@ -24,8 +24,6 @@ import { PermissionsModule } from './permissions/permissions.module';
 import { SearchHistoryModule } from './search-history/search-history.module';
 import { UserDetailsModule } from './user-details/user-details.module';
 import { UserPermissionsModule } from './user-permissions/user-permissions.module';
-import { StateModule } from './state/state.module';
-import { CityModule } from './city/city.module';
 import { RatingFeedbackModule } from './rating-feedback/rating-feedback.module';
 import { BannerCategoryModule } from './banner-category/banner-category.module';
 import { ContactUs } from './contact-us/entities/contact-us.entity';
@@ -34,10 +32,10 @@ import { ProductsModule } from './products/products.module';
 import { ProductCategoryModule } from './product-category/product-category.module';
 import { ProductSubCategoryModule } from './product-sub-category/product-sub-category.module';
 import { ProductImagesModule } from './product-images/product-images.module';
-import { PrductVarityModule } from './prduct-varity/prduct-varity.module';
 import { SettingsModule } from './settings/settings.module';
 import { CategoryModule } from './category/category.module';
 import { SubCategoryModule } from './sub-category/sub-category.module';
+import { ProductVariantModule } from './product-variant/product-variant.module';
 @Module({
   imports: [
  
@@ -77,9 +75,7 @@ import { SubCategoryModule } from './sub-category/sub-category.module';
     EmailSubscribersModule,
     //BlogsModule,
     //ContactUsModule,
-    ////StateModule,
-    //CityModule,
-    //AreaModule,
+   
     RatingFeedbackModule,
     BannerCategoryModule,
     StaffDetailModule,
@@ -87,10 +83,10 @@ import { SubCategoryModule } from './sub-category/sub-category.module';
     ProductCategoryModule,
     ProductSubCategoryModule,
     ProductImagesModule,
-    PrductVarityModule,
     ContactUsModule,
     CategoryModule,
-  SubCategoryModule
+  SubCategoryModule,
+  ProductVariantModule
    
   ],
   controllers: [AppController],

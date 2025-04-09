@@ -1,5 +1,5 @@
 
-
+import { VariantType } from 'src/enum';
 import { Product } from 'src/products/entities/product.entity';
 import {
   Column,
@@ -12,7 +12,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class PrductVarity {
+export class ProductVariant {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -34,14 +34,14 @@ export class PrductVarity {
   @Column({ type: 'float', default: 0 })
   discount: number;
 
-  @Column({ nullable: true })
-  mfg: Date;
-  
-  @Column({ type: 'int', default: 0 })
-  stock: number;
+  // @Column({ type: 'float', default: 0 })
+  // finalPrice: number;
 
-  @Column({ type: 'int', default: 0 })
-  life: number;
+  // @Column({ type: 'int', default: 0 })
+  // availability: number;
+
+  // @Column({ type: 'int', default: 0 })
+  // onHand: number;
 
   @Column({ type: 'varchar', length: 100, nullable: true })
   sku: string;
@@ -65,9 +65,5 @@ export class PrductVarity {
   })
   product: Product[];
 
-  // @OneToMany(
-  //   () => CartProductVariant,
-  //   (cartProductVariant) => cartProductVariant.productVariant,
-  // )
-  // cartProductVariant: CartProductVariant[];
+  
 }

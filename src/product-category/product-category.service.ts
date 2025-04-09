@@ -9,9 +9,7 @@ export class ProductCategoryService {
 constructor(
 @InjectRepository (ProductCategory) private readonly productCategoryRepo: Repository<ProductCategory>,
 ){}
- async Categorycreate(dto: ProductCategoryDto) {
-
-
+ async Categorycreate(dto: ProductCategoryDto[]) {
     const existingRecords = await this.productCategoryRepo.find({
         where: { productId: dto.productId },
       });

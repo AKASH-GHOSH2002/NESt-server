@@ -169,7 +169,7 @@ export enum ProductFileType {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
 }
-export enum VarityType {
+export enum  VariantType {
   COLOR = 'COLOR',
 }
 

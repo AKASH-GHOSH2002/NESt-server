@@ -3,6 +3,7 @@ import { ProductStatus } from 'src/enum';
 import { ProductCategory } from 'src/product-category/entities/product-category.entity';
 import { ProductImage } from 'src/product-images/entities/product-image.entity';
 import { ProductSubCategory } from 'src/product-sub-category/entities/product-sub-category.entity';
+import { ProductVariant } from 'src/product-variant/entities/product-variant.entity';
 import {
     Column,
     CreateDateColumn,
@@ -93,5 +94,8 @@ export class Product {
 
    @ManyToOne(() => ProductImage, (productImage) => productImage.product)
    productImage: ProductImage[];
+
+   @OneToMany(() => ProductVariant, (productVariant) => productVariant.product)
+   productVariant: ProductVariant[];
 
 }
